@@ -39,4 +39,4 @@ Este proyecto contiene un programa en Python que busca letras en una cadena de t
 Para ejecutar el programa, asegúrate de tener instalado Python en tu sistema. Luego, simplemente corre el archivo:
 
 ```bash
-python nombre_del_archivo.py
+python bueno.py
