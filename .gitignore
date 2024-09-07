@@ -1,0 +1,12 @@
+# Ignorar archivos de compilación
+*.class
+*.o
+*.out
+
+# Ignorar carpetas temporales
+/temp/
+node_modules/
+
+# Ignorar archivos de configuración local
+*.log
+*.env
