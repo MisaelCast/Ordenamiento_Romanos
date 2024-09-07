@@ -30,7 +30,25 @@ def validar_repeticiones(letras_encontradas):
 
     return letras_validadas
 
+
+####################### Validad reglas para iv y ix ############################
+
+#ef numeros_pares_i(letras_encontradas, numeros_romanos):
+    #valores_pares = []
+    
+   # if letras_encontradas[1] == 'i' and letras_encontradas[2]=='v':
+  #      for letra in letras_encontradas:
+       
+ #   return letras_encontradas 
+ 
+
+
+
+
+
+
 ######################  Convertir a números y validar reglas ############################
+
 
 def convertir_a_valores(letras_encontradas, numeros_romanos):
     valores_numericos = []
@@ -40,11 +58,32 @@ def convertir_a_valores(letras_encontradas, numeros_romanos):
 
     # Verificar la condición y modificar la lista si es necesario
     if len(valores_numericos) >= 3:  # Asegurarse de que hay al menos 3 elementos
-        if valores_numericos[0] > valores_numericos[1] < valores_numericos[2]:
-            # Eliminar todo después del segundo elemento
-            valores_numericos = valores_numericos[:2]
-        if valores_numericos[0] < valores_numericos[1] > valores_numericos[2]:
-            valores_numericos = valores_numericos[:2]
+
+        if valores_numericos[1] == 1 or valores_numericos[1] == 50 or valores_numericos[1] == 100 or valores_numericos[1] == 500:
+        
+            if valores_numericos[1] == 1 and valores_numericos[2] == 5:
+                valores_numericos = valores_numericos[:3] 
+            if valores_numericos[1] == 1 and valores_numericos[2] == 10:
+                valores_numericos = valores_numericos[:3]
+            if valores_numericos[1] == 50 and valores_numericos[2] == 10:
+                valores_numericos = valores_numericos[:3]    
+            if valores_numericos[1] == 100 and valores_numericos[2] == 10:
+                valores_numericos = valores_numericos[:3] 
+            if valores_numericos[1] == 500 and valores_numericos[2] == 100:
+                valores_numericos = valores_numericos[:3]    
+            if valores_numericos[1] == 1000 and valores_numericos[2] == 100:
+                valores_numericos = valores_numericos[:3]
+            
+        else:
+
+
+
+
+                if valores_numericos[0] > valores_numericos[1] < valores_numericos[2]:
+                    # Eliminar todo después del segundo elemento
+                    valores_numericos = valores_numericos[:2]
+                if valores_numericos[0] < valores_numericos[1] > valores_numericos[2]:
+                    valores_numericos = valores_numericos[:2]
 
     return valores_numericos
 
@@ -79,7 +118,7 @@ def main():
         'm': 1000
     }
 
-    prueba = "ximena"
+    prueba = "civil"
 
     letras = encontrar_letras(prueba, numeros_romanos)
     letras_validadas = validar_repeticiones(letras)
