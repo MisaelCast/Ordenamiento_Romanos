@@ -18,6 +18,7 @@ def encontrar_letras(prueba, numeros_romanos):
 def validar_repeticiones(letras_encontradas):
     letras_validadas = []
     conteo_letras = {}
+    no_repetir = {'v', 'l', 'd'}  # Letras que no deben repetirse
 
     for letra in letras_encontradas:
         if letra in conteo_letras:
@@ -25,46 +26,50 @@ def validar_repeticiones(letras_encontradas):
         else:
             conteo_letras[letra] = 1
         
-        if conteo_letras[letra] <= 3:
+        # Permitir un máximo de 3 repeticiones solo para ciertas letras
+        if letra not in no_repetir and conteo_letras[letra] <= 3:
+            letras_validadas.append(letra)
+        elif letra in no_repetir and conteo_letras[letra] == 1:
             letras_validadas.append(letra)
 
     return letras_validadas
 
 
-####################### Validad reglas para iv y ix ############################
+##################### para valores con i #############3
 
-#ef numeros_pares_i(letras_encontradas, numeros_romanos):
-    #valores_pares = []
-    
-   # if letras_encontradas[1] == 'i' and letras_encontradas[2]=='v':
-  #      for letra in letras_encontradas:
-       
- #   return letras_encontradas 
- 
+def casos_con_1(valores_numericos):
+    if valores_numericos[1] == 1 and valores_numericos[2] == 5:
+        valores_numericos = valores_numericos[:3]
+    if valores_numericos[1] == 1 and valores_numericos[2] == 10:
+        valores_numericos = valores_numericos[:3]
+    return valores_numericos
 
+#################### Para otros valores diferentes #############3
 
-
-
+def modificar_lista(valores_numericos):
+    if valores_numericos[0] > valores_numericos[1] < valores_numericos[2]:
+        # Eliminar todo después del segundo elemento
+        valores_numericos = valores_numericos[:2]
+    if valores_numericos[0] < valores_numericos[1] > valores_numericos[2]:
+        valores_numericos = valores_numericos[:2]
+    return valores_numericos
 
 
 ######################  Convertir a números y validar reglas ############################
 
-
 def convertir_a_valores(letras_encontradas, numeros_romanos):
     valores_numericos = []
-
+    
     for letra in letras_encontradas:
         valores_numericos.append(numeros_romanos[letra])
 
     # Verificar la condición y modificar la lista si es necesario
     if len(valores_numericos) >= 3:  # Asegurarse de que hay al menos 3 elementos
 
-        if valores_numericos[1] == 1 or valores_numericos[1] == 50 or valores_numericos[1] == 100 or valores_numericos[1] == 500:
+        if valores_numericos[1] in {1, 50, 100, 500}:
         
-            if valores_numericos[1] == 1 and valores_numericos[2] == 5:
-                valores_numericos = valores_numericos[:3] 
-            if valores_numericos[1] == 1 and valores_numericos[2] == 10:
-                valores_numericos = valores_numericos[:3]
+            if valores_numericos[1] == 1:
+                valores_numericos = casos_con_1(valores_numericos)
             if valores_numericos[1] == 50 and valores_numericos[2] == 10:
                 valores_numericos = valores_numericos[:3]    
             if valores_numericos[1] == 100 and valores_numericos[2] == 10:
@@ -72,18 +77,10 @@ def convertir_a_valores(letras_encontradas, numeros_romanos):
             if valores_numericos[1] == 500 and valores_numericos[2] == 100:
                 valores_numericos = valores_numericos[:3]    
             if valores_numericos[1] == 1000 and valores_numericos[2] == 100:
-                valores_numericos = valores_numericos[:3]
-            
+                valores_numericos = valores_numericos[:3]            
         else:
-
-
-
-
-                if valores_numericos[0] > valores_numericos[1] < valores_numericos[2]:
-                    # Eliminar todo después del segundo elemento
-                    valores_numericos = valores_numericos[:2]
-                if valores_numericos[0] < valores_numericos[1] > valores_numericos[2]:
-                    valores_numericos = valores_numericos[:2]
+            # Llamar a la función para modificar la lista
+            valores_numericos = modificar_lista(valores_numericos)
 
     return valores_numericos
 
