@@ -1,42 +1,65 @@
-# 📜 Conversor de Letras Romanas
+# Conversión y Validación de Números Romanos
 
-Este proyecto contiene un programa en Python que busca letras en una cadena de texto, verifica si corresponden a números romanos, valida las reglas de repetición de letras, y convierte dichas letras en su valor numérico correspondiente. Posteriormente, procesa estos valores según las reglas de los números romanos, para producir un resultado final.
+Este proyecto convierte secuencias de letras en valores numéricos romanos, valida repeticiones y procesa estos valores según las reglas del sistema romano.
 
-## 🔍 Funciones principales
+## Funciones
 
-### 1. 🔡 `encontrar_letras(prueba, numeros_romanos)`
-   - **Descripción**: Busca letras de números romanos (`i`, `v`, `x`, `l`, `c`, `d`, `m`) en una cadena de texto y las almacena en una lista.
-   - **Parámetros**:
-     - `prueba`: Cadena de texto donde se buscarán las letras.
-     - `numeros_romanos`: Diccionario con las letras romanas y sus valores numéricos.
-   - **Devuelve**: Lista con las letras encontradas que son números romanos.
+### `encontrar_letras(prueba, numeros_romanos)`
+Encuentra y devuelve letras romanas en una cadena de texto.
 
-### 2. 🚫 `validar_repeticiones(letras_encontradas)`
-   - **Descripción**: Valida que no haya más de tres repeticiones de las mismas letras romanas consecutivas.
-   - **Parámetros**:
-     - `letras_encontradas`: Lista de letras encontradas.
-   - **Devuelve**: Lista de letras que pasan la validación de repetición.
+**Parámetros:**
+- `prueba` (str): Cadena de texto.
+- `numeros_romanos` (dict): Diccionario de letras romanas a valores numéricos.
 
-### 3. 🔢 `convertir_a_valores(letras_encontradas, numeros_romanos)`
-   - **Descripción**: Convierte las letras romanas a sus valores numéricos y aplica reglas para eliminar combinaciones no válidas.
-   - **Parámetros**:
-     - `letras_encontradas`: Lista de letras encontradas.
-     - `numeros_romanos`: Diccionario con las letras romanas y sus valores numéricos.
-   - **Devuelve**: Lista de valores numéricos después de aplicar validaciones.
+**Retorna:** Lista de letras romanas encontradas.
 
-### 4. ➕➖ `procesar_valores(valores_numericos)`
-   - **Descripción**: Procesa los valores numéricos de acuerdo a las reglas de los números romanos, sumando o restando según corresponda.
-   - **Parámetros**:
-     - `valores_numericos`: Lista de valores numéricos correspondientes a las letras romanas encontradas.
-   - **Devuelve**: El resultado final después de procesar los valores.
+### `validar_repeticiones(letras_encontradas)`
+Valida repeticiones de letras romanas permitiendo hasta 3 repeticiones para algunas y solo 1 para otras.
 
-### 5. 🚀 `main()`
-   - **Descripción**: Función principal que ejecuta el programa. Define una cadena de prueba, realiza las conversiones, y muestra los resultados.
-   - **Cadena de prueba**: `"ximena"`
+**Parámetros:**
+- `letras_encontradas` (list): Lista de letras romanas.
 
-## 🛠 Ejecución del programa
+**Retorna:** Lista de letras válidas.
 
-Para ejecutar el programa, asegúrate de tener instalado Python en tu sistema. Luego, simplemente corre el archivo:
+### `casos_con_1(valores_numericos)`
+Ajusta valores numéricos si el valor 1 está acompañado por 5 o 10.
+
+**Parámetros:**
+- `valores_numericos` (list): Lista de valores numéricos.
+
+**Retorna:** Lista ajustada de valores numéricos.
+
+### `modificar_lista(valores_numericos)`
+Ajusta la lista de valores numéricos según comparaciones entre ellos.
+
+**Parámetros:**
+- `valores_numericos` (list): Lista de valores numéricos.
+
+**Retorna:** Lista modificada de valores numéricos.
+
+### `convertir_a_valores(letras_encontradas, numeros_romanos)`
+Convierte letras en valores numéricos y ajusta la lista según reglas específicas.
+
+**Parámetros:**
+- `letras_encontradas` (list): Lista de letras válidas.
+- `numeros_romanos` (dict): Diccionario de letras romanas a valores numéricos.
+
+**Retorna:** Lista de valores numéricos ajustados.
+
+### `procesar_valores(valores_numericos)`
+Suma o resta valores numéricos basándose en su orden.
+
+**Parámetros:**
+- `valores_numericos` (list): Lista de valores numéricos.
+
+**Retorna:** Resultado final del procesamiento.
+
+### `main()`
+Función principal que ejecuta el programa y solicita entradas del usuario.
+
+## Ejecución
+
+Para ejecutar el programa, corre el archivo Python:
 
 ```bash
-python bueno.py
+python nombre_del_archivo.py
