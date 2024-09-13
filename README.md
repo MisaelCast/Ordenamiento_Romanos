@@ -16,26 +16,11 @@ Encuentra y devuelve letras romanas en una cadena de texto.
 ### `validar_repeticiones(letras_encontradas)`
 Valida repeticiones de letras romanas permitiendo hasta 3 repeticiones para algunas y solo 1 para otras.
 
-**Parámetros:**
-- `letras_encontradas` (list): Lista de letras romanas.
-
-**Retorna:** Lista de letras válidas.
-
 ### `casos_con_1(valores_numericos)`
 Ajusta valores numéricos si el valor 1 está acompañado por 5 o 10.
 
-**Parámetros:**
-- `valores_numericos` (list): Lista de valores numéricos.
-
-**Retorna:** Lista ajustada de valores numéricos.
-
 ### `modificar_lista(valores_numericos)`
 Ajusta la lista de valores numéricos según comparaciones entre ellos.
-
-**Parámetros:**
-- `valores_numericos` (list): Lista de valores numéricos.
-
-**Retorna:** Lista modificada de valores numéricos.
 
 ### `convertir_a_valores(letras_encontradas, numeros_romanos)`
 Convierte letras en valores numéricos y ajusta la lista según reglas específicas.
@@ -62,4 +47,4 @@ Función principal que ejecuta el programa y solicita entradas del usuario.
 Para ejecutar el programa, corre el archivo Python:
 
 ```bash
-python nombre_del_archivo.py
+python Bueno.py
