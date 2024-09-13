@@ -48,10 +48,14 @@ def casos_con_1(valores_numericos):
 
 def modificar_lista(valores_numericos):
     if valores_numericos[0] > valores_numericos[1] < valores_numericos[2]:
-        # Eliminar todo después del segundo elemento
         valores_numericos = valores_numericos[:2]
+    
     if valores_numericos[0] < valores_numericos[1] > valores_numericos[2]:
         valores_numericos = valores_numericos[:2]
+    
+    if valores_numericos[0] < valores_numericos[1] < valores_numericos[2]:
+        valores_numericos = valores_numericos[:2]
+
     return valores_numericos
 
 
@@ -115,16 +119,23 @@ def main():
         'm': 1000
     }
 
-    prueba = "civil"
+    while True:
+        prueba = input("Ingresa un valor (o escribe 'salir' para terminar): ")
 
-    letras = encontrar_letras(prueba, numeros_romanos)
-    letras_validadas = validar_repeticiones(letras)
-    valores = convertir_a_valores(letras_validadas, numeros_romanos)
-    resultado = procesar_valores(valores)
+        if prueba.lower() == "salir":
+            print("Saliendo del programa...")
+            break
 
-    print("Letras encontradas:", letras)
-    print("Valores numéricos validados:", valores)
-    print("Resultado del procesamiento:", resultado)
+        # Resto del código permanece igual
+        letras = encontrar_letras(prueba, numeros_romanos)
+        letras_validadas = validar_repeticiones(letras)
+        valores = convertir_a_valores(letras_validadas, numeros_romanos)
+        resultado = procesar_valores(valores)
+
+        print("Letras encontradas:", letras)
+        print("Valores numéricos validados:", valores)
+        print("Resultado del procesamiento:", resultado)
+        print("-" * 50)
 
 ############################  Ejecutar el programa ############################
 
